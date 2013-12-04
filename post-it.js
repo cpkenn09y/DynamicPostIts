@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+  CURRENTTITLEINDEX = 0
+
   var Board = function() {
     this.postCount = 0;
   }
@@ -29,8 +31,16 @@ $(document).ready(function() {
   }
 
   PostIt.prototype.appendToBoard = function() {
-    $('#board').append("<div contenteditable='true' id='" + this.id + "' class='post-it'> <button value='" + this.id + "'> X </button> <h3 class='header'>Your Post-It</h3><p class='content'>{Content Here}</p></div>")
+    $('#board').append("<div contenteditable='true' id='" + this.id + "' class='post-it'> <button value='" + this.id + "'> X </button> <h3 class='header'>"+TITLE[this.randomIndexForTitleArray(TITLE)]+"</h3><p class='content'>{Content Here}</p></div>")
     $('#' + this.id).css({'top': this.y, 'left': this.x})
+  }
+
+  PostIt.prototype.randomIndexForTitleArray = function(TITLE) {
+    if(CURRENTTITLEINDEX >= TITLE.length) {
+      return CURRENTTITLEINDEX = 0
+    } else {
+      return CURRENTTITLEINDEX++
+    }
   }
 
   PostIt.prototype.enableDeletePostIt = function() {
