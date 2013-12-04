@@ -9,6 +9,7 @@
 .post-it {
   position: absolute !important;
   width: 160px;
+  height: 120px;
   background-color: yellow;
   box-shadow: -2px 2px 5px #555;
   overflow: hidden;
@@ -35,8 +36,6 @@
 }
 
 .post-it .content {
-  padding: 10px;
-  min-height: 70px;
   outline: none;
 }
 
